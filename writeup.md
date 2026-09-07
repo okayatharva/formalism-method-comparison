@@ -2,7 +2,7 @@
 
 ## 1. Extraction
 
-I first read the abstract, introduction, and method section of each paper to understand the basic idea of the method. I then used AI to help create a first draft of the JSON fields and checked the important details and evidence against the original papers.
+I first read the abstract, introduction, and method section of each paper to understand the basic idea of the method. I then used AI to help with a first draft of the JSON fields and checked the important details and evidence against the original papers.
 
 While checking the papers, I noticed that AI can sometimes give details that sound correct but are not exactly from the paper. For example, in the Deep Sets record, I had to correct the section and wording after checking the original paper.
 
@@ -44,11 +44,11 @@ The three groupings give different results because each one looks at a different
 | ViT        | Computer vision | Sequence of patches    | Less inductive bias than CNN | Learned attention        |
 | Deep Sets  | General ML      | Set of elements        | Permutation invariance       | Sum-pooling              |
 
-**Together topically, apart formally:** GCN and GAT are both graph-learning methods, but they use different operations. GCN uses graph-based aggregation, while GAT learns attention weights.
+**Apart topically, apart formally:** GCN and GAT are both graph-learning methods, but they use different operations. GCN uses graph-based aggregation, while GAT learns attention weights.
 
 **Apart topically, together formally:** GAT and ViT are from different areas, but both use learned attention to combine information from different elements. This was the most interesting similarity I found.
 
-**Which axis disagrees most with topic:** I think **operation** disagrees the most with topic because it connects GAT with ViT even though they belong to different topical groups.
+**Which axis disagrees most with topic:** I think **operation** disagrees the most with topic because it connects GAT with ViT, even though they belong to different topical groups.
 
 ## 4. My Recommendation
 
