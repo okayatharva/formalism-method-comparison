@@ -1,0 +1,29 @@
+{
+  "method_name": "PointNet++",
+  "paper_id": "1706.02413",
+  "arxiv_categories": ["cs.CV"],
+  "formalism": {
+    "objects": [
+      "A discrete metric space X = (M, d), where M is a set of points in R^n and d is the distance metric."
+    ],
+    "assumptions": [
+      "The input point set is unordered, so its meaning should be invariant to permutations of its points.",
+      "A distance metric is available to define local neighborhoods between points.",
+      "Point density and other point attributes may vary across different locations."
+    ],
+    "guarantees": [
+      "PointNet++ achieves significantly better results than state-of-the-art methods on challenging 3D point-cloud benchmarks.",
+      "The PointNet set function used in the method is invariant to input point permutations and can arbitrarily approximate any continuous set function."
+    ],
+    "operation": "PointNet++ hierarchically samples representative points, groups neighboring points into local regions, and applies PointNet (Mini-PointNet) to each local region to produce feature vectors, repeating this at larger contextual scales."
+  },
+  "applicability": {
+    "task_types": ["classification", "point-wise segmentation"],
+    "data_modalities": ["2D objects", "3D rigid objects", "3D non-rigid objects", "real 3D scenes"]
+  },
+  "evidence_spans": {
+    "objects": "Suppose that X = (M, d) is a discrete metric space whose metric is inherited from a Euclidean space Rⁿ, where M ⊆ Rⁿ is the set of points and d is the distance metric. In addition, the density of M in the ambient Euclidean space may not be uniform everywhere.",
+    "assumptions": "As a set, such data has to be invariant to permutations of its members. In addition, the distance metric defines local neighborhoods that may exhibit different properties... the density and other attributes of points may not be uniform across different locations.",
+    "guarantees": "results significantly better than state-of-the-art have been obtained on challenging benchmarks of 3D point clouds. The set function f in Eq. 1 is invariant to input point permutations and can arbitrarily approximate any continuous set function."
+  }
+}

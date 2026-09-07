@@ -1,0 +1,34 @@
+{
+  "method_name": "Graph Attention Networks (GATs)",
+  "paper_id": "1710.10903",
+  "arxiv_categories": ["stat.ML", "cs.AI", "cs.LG", "cs.SI"],
+  "formalism": {
+    "objects": [
+      "A graph with N nodes",
+      "Node feature vectors, where each node has F features",
+      "Neighborhood relationships between nodes"
+    ],
+    "assumptions": [
+      "The input is graph-structured data with node features and defined node neighborhoods.",
+      "Attention is computed only between a node and nodes in its neighborhood; in the experiments, this means first-order neighbors, including the node itself.",
+      "The attention mechanism is shared across edges and does not require upfront access to the global graph structure or the features of all nodes.",
+      "The graph is not required to be undirected."
+    ],
+    "guarantees": [
+      "No formal theorem or mathematical proof is provided; the paper gives empirical performance claims.",
+      "GAT achieved or matched state-of-the-art results on four transductive and inductive graph benchmarks: Cora, Citeseer, Pubmed, and a protein-protein interaction dataset.",
+      "In the reported experiments, GAT improved over GCN by 1.5% on Cora and 1.6% on Citeseer.",
+      "GAT improved by 20.5% relative to the best GraphSAGE result on the protein-protein interaction task."
+    ],
+    "operation": "For each node, GAT computes attention scores for its neighboring nodes, normalizes these scores into attention weights, and uses them to calculate a weighted combination of neighbor features to produce the node's new representation."
+  },
+  "applicability": {
+    "task_types": ["Node classification", "Transductive graph learning", "Inductive graph learning"],
+    "data_modalities": ["Graph-structured data", "Citation networks (Cora, Citeseer, Pubmed)", "Protein-protein interaction networks (PPI)"]
+  },
+  "evidence_spans": {
+    "objects": "The input to our layer is a set of node features, h = {h1, h2, . . . , hN }, hi ∈ R^F, where N is the number of nodes, and F is the number of features in each node.",
+    "assumptions": "We inject the graph structure into the mechanism by performing masked attention—we only compute eij for nodes j ∈ Ni, where Ni is some neighborhood of node i in the graph. In all our experiments, these will be exactly the first-order neighbors of i (including i). The attention mechanism is applied in a shared manner to all edges in the graph, and therefore it does not depend on upfront access to the global graph structure or (features of) all of its nodes... The graph is not required to be undirected.",
+    "guarantees": "Our GAT models have achieved or matched state-of-the-art results across four established transductive and inductive graph benchmarks: the Cora, Citeseer and Pubmed citation network datasets, as well as a protein-protein interaction dataset."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "method_name": "Vision Transformer (ViT)",
+  "paper_id": "2010.11929",
+  "arxiv_categories": ["cs.CV", "cs.AI", "cs.LG"],
+  "formalism": {
+    "objects": [
+      "Images represented as sequences of fixed-size image patches, with each patch converted into a vector representation and given positional information."
+    ],
+    "assumptions": [
+      "Assumes far less image-specific inductive bias than CNNs — no built-in locality or translation-equivariance; spatial relationships between patches must be learned entirely from data rather than being architecturally assumed."
+    ],
+    "guarantees": [
+      "The method empirically achieves strong image-classification performance and can outperform state-of-the-art convolutional networks while using substantially fewer computational resources to train when pretrained on large amounts of data."
+    ],
+    "operation": "Split an image into fixed-size patches, linearly embed each patch, add position embeddings, and feed the resulting sequence of vectors to a standard Transformer encoder."
+  },
+  "applicability": {
+    "task_types": ["image classification"],
+    "data_modalities": ["natural images"]
+  },
+  "evidence_spans": {
+    "objects": "We split an image into fixed-size patches, linearly embed each of them, add position embeddings, and feed the resulting sequence of vectors to a standard Transformer encoder.",
+    "assumptions": "Vision Transformer has much less image-specific inductive bias than CNNs... all spatial relations between the patches have to be learned from scratch.",
+    "guarantees": "When pre-trained on large amounts of data and transferred to multiple mid-sized or small image recognition benchmarks (ImageNet, CIFAR-100, VTAB, etc.), Vision Transformer (ViT) attains excellent results compared to state-of-the-art convolutional networks while requiring substantially fewer computational resources to train."
+  }
+}

@@ -1,0 +1,6 @@
+## Requirements
+
+* A Markdown editor such as VS Code
+* The six research papers used for the analysis
+* The JSON files containing the extracted formalism records
+* Basic understanding of machine learning and graph - based methods

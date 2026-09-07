@@ -1,0 +1,28 @@
+{
+  "method_name": "Deep Sets",
+  "paper_id": "1703.06114",
+  "arxiv_categories": ["cs.LG", "stat.ML"],
+  "formalism": {
+    "objects": [
+      "a set of elements X = {x1, ..., xm}, not a fixed-length vector"
+    ],
+    "assumptions": [
+      "The function has to give the same answer no matter what order the set's elements are listed in (permutation invariance)."
+    ],
+    "guarantees": [
+      "Proves (not just claims) that a function is permutation invariant if and only if it can be written as: transform each element, add the results together, then transform the sum. This is a full if-and-only-if proof, not just an approximation result.",
+      "Also works out the matching rule for the equivariant version, where each element gets its own output."
+    ],
+    "operation": "Run each set element through the same small network to get its own representation, add all those representations together, then run the sum through a second network to get the final output."
+  },
+  "applicability": {
+    "task_types": ["estimating population statistics", "regression/summation over sets", "point cloud classification", "set expansion", "image tagging", "set anomaly/outlier detection"],
+    "data_modalities": ["real-valued vectors (Gaussian samples)", "digit sequences and MNIST images", "3D point clouds (ModelNet40)", "galaxy cluster photometric data", "text/word sets", "images with tags", "face images (CelebA)"]
+  },
+  "evidence_spans": {
+    "objects": "Now, if the input is a set X = {x1, . . . , xm}, then we would like the response of the function not to depend on the ordering of the elements in the set.",
+    "assumptions": "A function f acting on sets must be permutation invariant to the order of objects in the set, i.e. f({x1, ..., xm}) = f({xσ(1), ..., xσ(m)}) for any permutation σ.",
+    "guarantees": "A function S(X) operating on a set X can be a valid scoring function, i.e. it is permutation invariant to the elements in X, if and only if it can be decomposed in the form ρ(Σ_{x∈X} φ(x)), for suitable transformations φ and ρ."
+  },
+  "notes": "This is the only paper of the six with a full necessary-and-sufficient proof rather than just an approximation bound or empirical claim. Worth remembering for the recommendation step."
+}

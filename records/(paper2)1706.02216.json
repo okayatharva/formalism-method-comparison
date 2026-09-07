@@ -1,0 +1,27 @@
+{
+  "method_name": "GraphSAGE",
+  "paper_id": "1706.02216",
+  "arxiv_categories": ["cs.SI"],
+  "formalism": {
+    "objects": ["graph G(V, E)", "nodes", "edges", "node features", "local neighborhoods"],
+    "assumptions": [
+      "Neighbors have no natural ordering, so aggregation should work on an unordered set.",
+      "For Theorem 1, feature vectors of different nodes must be separated by more than a fixed constant C."
+    ],
+    "guarantees": [
+      "Can approximate node clustering coefficients after K = 4 iterations under the theorem assumptions.",
+      "Outperforms strong baselines on three inductive node-classification benchmarks.",
+      "Can classify unseen nodes and generalize to unseen graphs."
+    ],
+    "operation": "GraphSAGE aggregates neighbor information, combines it with the node's own information, and uses a neural network layer to get the new node representation."
+  },
+  "applicability": {
+    "task_types": ["inductive node classification"],
+    "data_modalities": ["academic paper citation graphs", "Reddit post graphs", "protein-protein interaction graphs"]
+  },
+  "evidence_spans": {
+    "objects": "Graph G(V, E); input features {xᵥ, ∀v ∈ V}",
+    "assumptions": "a node's neighbors have no natural ordering",
+    "guarantees": "after K = 4 iterations |zv − cv| < ε"
+  }
+}

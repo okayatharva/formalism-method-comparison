@@ -1,0 +1,29 @@
+{
+  "method_name": "Graph Convolutional Network (GCN)",
+  "paper_id": "1609.02907",
+  "arxiv_categories": ["cs.LG", "stat.ML"],
+  "formalism": {
+    "objects": [
+      "a graph represented by a symmetric adjacency matrix A",
+      "node features X",
+      "partially labeled nodes"
+    ],
+    "assumptions": [
+      "Locality: a node's representation depends on its K-th-order neighborhood for a GCN with K layers.",
+      "Self-connections and edges to neighboring nodes are assumed to have equal importance."
+    ],
+    "guarantees": [
+      "Empirically outperforms the compared baseline methods in semi-supervised node classification on the evaluated datasets."
+    ],
+    "operation": "GCN repeatedly aggregates each node's features with information from its neighbors, transforms the resulting representations using learned weight matrices, and produces class probabilities for node classification."
+  },
+  "applicability": {
+    "task_types": ["semi-supervised node classification"],
+    "data_modalities": ["graph-structured data", "citation networks", "knowledge graphs"]
+  },
+  "evidence_spans": {
+    "objects": "we consider a two-layer GCN for semi-supervised node classification on a graph with a symmetric adjacency matrix A",
+    "assumptions": "Through the approximations introduced in Section 2, we implicitly assume locality (dependence on the Kth-order neighborhood for a GCN with K layers) and equal importance of self-connections vs. edges to neighboring nodes.",
+    "guarantees": "we demonstrate that our approach outperforms related methods by a significant margin."
+  }
+}
