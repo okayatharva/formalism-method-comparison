@@ -1,0 +1,28 @@
+{
+  "method_name": "EdgeConv (Dynamic Graph CNN / DGCNN)",
+  "paper_id": "1801.07829",
+  "arxiv_categories": ["cs.CV"],
+  "formalism": {
+    "objects": ["a set of points {x1,...,xn} in R^F together with a directed k-NN graph, recomputed after every layer"],
+    "assumptions": [
+      "point cloud is an unordered set, so operations must be permutation-invariant",
+      "local structure represented via a k-nearest-neighbor graph"
+    ],
+    "guarantees": [
+      "formal: EdgeConv output is permutation-invariant, since max is a symmetric aggregation function",
+      "formal: EdgeConv has partial translation invariance",
+      "empirical claim only for classification/segmentation accuracy (state-of-the-art on ModelNet40, ShapeNet, S3DIS)"
+    ],
+    "operation": "compute a learned edge feature for each point-neighbor pair, aggregate over the point's current k nearest neighbors with a max operation, and dynamically recompute the neighbor graph from each layer's output features"
+  },
+  "applicability": {
+    "task_types": ["shape classification", "part segmentation", "semantic segmentation"],
+    "data_modalities": ["3D point clouds"]
+  },
+  "evidence_spans": {
+    "objects": "Consider an F-dimensional point cloud with n points, denoted by X = {x1, . . . , xn} in R^F.",
+    "assumptions": "we construct G as the k-nearest neighbor (k-NN) graph of X in R^F",
+    "guarantees": "The output of the layer x'i is invariant to permutation of the input xj because max is a symmetric function"
+  },
+  "has_formal_proof": true
+}

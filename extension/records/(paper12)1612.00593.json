@@ -1,0 +1,28 @@
+{
+  "method_name": "PointNet",
+  "paper_id": "1612.00593",
+  "arxiv_categories": ["cs.CV"],
+  "formalism": {
+    "objects": ["unordered set of points {P1,...,Pn} in R^m"],
+    "assumptions": [
+      "input is an unordered set and the network must be invariant to permutation of points",
+      "the learned representation should be robust to rigid transformations such as rotation and translation"
+    ],
+    "guarantees": [
+      "formal theorem: shared per-point transformation plus max pooling can approximate any continuous set function arbitrarily well",
+      "formal theorem: the network output is determined by a bounded critical point set",
+      "empirical only for actual classification/segmentation accuracy"
+    ],
+    "operation": "shared MLP applied identically to every point, followed by symmetric element-wise max pooling over all points to produce a global feature"
+  },
+  "applicability": {
+    "task_types": ["3D shape classification", "3D part segmentation", "3D semantic scene segmentation"],
+    "data_modalities": ["raw 3D point clouds"]
+  },
+  "evidence_spans": {
+    "objects": "A point cloud is represented as a set of 3D points {Pi | i = 1, ..., n}, where each point Pi is a vector of its (x, y, z) coordinate plus extra feature channels.",
+    "assumptions": "a network that consumes N 3D point sets needs to be invariant to N! permutations of the input set in data feeding order.",
+    "guarantees": "f(S) - gamma(MAX{h(xi)}) < epsilon; and |CS| <= K"
+  },
+  "has_formal_proof": true
+}

@@ -1,0 +1,24 @@
+{
+  "method_name": "Transformer (Attention Is All You Need)",
+  "paper_id": "1706.03762",
+  "arxiv_categories": ["cs.CL"],
+  "formalism": {
+    "objects": ["a sequence of symbols (e.g. words), represented as vectors, with no graph or grid structure between them"],
+    "assumptions": [],
+    "guarantees": [
+      "no formal theorem; empirical claim only",
+      "achieves state-of-the-art BLEU scores on WMT 2014 English-to-German (28.4) and English-to-French (41.8) translation benchmarks"
+    ],
+    "operation": "for each element in the sequence, compute a learned relevance score against every other element, normalize with softmax, and combine all elements weighted by those scores"
+  },
+  "applicability": {
+    "task_types": ["machine translation", "sequence transduction", "constituency parsing"],
+    "data_modalities": ["text sequences"]
+  },
+  "evidence_spans": {
+    "objects": "The encoder maps an input sequence of symbol representations (x1, ..., xn) to a sequence of continuous representations z = (z1, ..., zn).",
+    "assumptions": "",
+    "guarantees": "our model establishes a new single-model state-of-the-art BLEU score of 41.8"
+  },
+  "has_formal_proof": false
+}

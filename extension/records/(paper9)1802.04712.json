@@ -1,0 +1,27 @@
+{
+  "method_name": "Attention-based (Gated-)Attention MIL Pooling",
+  "paper_id": "1802.04712",
+  "arxiv_categories": ["cs.LG"],
+  "formalism": {
+    "objects": ["unordered bag of instance feature vectors X = {x1,...,xK} in R^D"],
+    "assumptions": [
+      "MIL assumption: bag label positive iff at least one instance is positive",
+      "instances within a bag are independent and unordered (permutation invariance required)"
+    ],
+    "guarantees": [
+      "no formal theorem; empirical claim only",
+      "comparable or superior accuracy/AUC to prior MIL methods across benchmark, MNIST-bags, and histopathology datasets"
+    ],
+    "operation": "embed each instance with a neural net, compute a softmax-normalized attention weight per instance, aggregate via the attention-weighted sum, classify the aggregated bag representation"
+  },
+  "applicability": {
+    "task_types": ["binary bag classification", "key-instance / ROI identification"],
+    "data_modalities": ["precomputed feature-vector bags", "image bags (MNIST)", "histopathology image patches"]
+  },
+  "evidence_spans": {
+    "objects": "there is a bag of instances, X = {x1, . . . , xK}, that exhibit neither dependency nor ordering among each other.",
+    "assumptions": "These assumptions imply that a MIL model must be permutation-invariant.",
+    "guarantees": "We show empirically that our approach achieves comparable performance to the best MIL methods on benchmark MIL datasets and it outperforms other methods on a MNIST-based MIL dataset and two real-life histopathology datasets without sacrificing interpretability."
+  },
+  "has_formal_proof": false
+}

@@ -1,0 +1,31 @@
+{
+  "method_name": "Continuous Modern Hopfield Network",
+  "paper_id": "2008.02217",
+  "arxiv_categories": ["cs.NE"],
+  "formalism": {
+    "objects": ["matrix X of N stored key patterns in R^d", "query/state vectors in R^d"],
+    "assumptions": [
+      "patterns lie on/near a sphere of fixed radius M for the storage-capacity theorem",
+      "patterns are randomly and independently chosen for the capacity theorem",
+      "one-step retrieval guarantees require patterns to be well separated"
+    ],
+    "guarantees": [
+      "formal theorem: global energy convergence via the Concave-Convex Procedure",
+      "formal theorem: exponential storage capacity",
+      "formal theorem: retrieval error shrinks exponentially with pattern separation",
+      "formal derivation: the update rule is algebraically identical to Transformer attention",
+      "empirical: best average AUC on immune repertoire classification, strong results on MIL benchmarks"
+    ],
+    "operation": "the update rule pulls a query toward a softmax-weighted average of stored key patterns, mathematically identical to Transformer attention, provably non-increasing in energy at each step"
+  },
+  "applicability": {
+    "task_types": ["multiple instance learning", "immune repertoire classification", "tabular classification", "drug property prediction"],
+    "data_modalities": ["token sequences", "MIL bags", "tabular features", "molecular features"]
+  },
+  "evidence_spans": {
+    "objects": "We have N stored (key) patterns xi in R^d represented by the matrix X = (x1, . . . , xN)... The state (query) pattern is in R^d.",
+    "assumptions": "We assume a failure probability 0 < p <= 1 and randomly chosen patterns on the sphere with radius M",
+    "guarantees": "The Concave-Convex Procedure (CCCP) ... minimizes a function that is the sum of a concave function and a convex function"
+  },
+  "has_formal_proof": true
+}

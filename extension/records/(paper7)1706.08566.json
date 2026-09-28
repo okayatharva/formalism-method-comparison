@@ -1,0 +1,27 @@
+{
+  "method_name": "SchNet",
+  "paper_id": "1706.08566",
+  "arxiv_categories": ["stat.ML"],
+  "formalism": {
+    "objects": ["a molecule described as a set of atoms, each with a nuclear charge and a 3D position, not restricted to a fixed grid"],
+    "assumptions": [
+      "the model should be invariant to rotation, translation, and atom ordering",
+      "filters must be rotationally invariant, achieved by using only interatomic distances as input to the filter-generating network"
+    ],
+    "guarantees": [
+      "by construction, energy predictions are rotationally invariant and force predictions are rotationally equivariant, and the resulting force field is energy-conserving",
+      "empirically achieves state-of-the-art results on molecular energy/force benchmarks (QM9, MD17, ISO17)"
+    ],
+    "operation": "each atom updates its representation by combining its neighboring atoms' features, weighted by a filter that is a learned continuous function of the distance between the atoms, rather than a fixed weight or an attention score"
+  },
+  "applicability": {
+    "task_types": ["molecular energy prediction", "interatomic force prediction"],
+    "data_modalities": ["molecules (3D atomic positions and nuclear charges)"]
+  },
+  "evidence_spans": {
+    "objects": "A molecule in a certain conformation can be described uniquely by a set of n atoms with nuclear charges Z = (Z1, . . . , Zn) and atomic positions R = (r1, . . . rn).",
+    "assumptions": "it is beneficial that the model incorporates the invariance of the molecular energy with respect to rotation, translation and atom indexing.",
+    "guarantees": "SchNet delivers both rotationally invariant energy prediction and rotationally equivariant force predictions... the resulting force-field is guaranteed to be energy-conserving."
+  },
+  "has_formal_proof": false
+}

@@ -1,0 +1,27 @@
+{
+  "method_name": "Conditional Neural Process (CNP)",
+  "paper_id": "1807.01613",
+  "arxiv_categories": ["cs.LG"],
+  "formalism": {
+    "objects": ["observation set of input-output pairs", "target set of unlabelled inputs"],
+    "assumptions": [
+      "the model's output distribution is permutation-invariant with respect to both the observation set and the target set",
+      "the basic model assumes a factored predictive distribution over targets"
+    ],
+    "guarantees": [
+      "no formal theorem; the paper explicitly disclaims the Bayesian-consistency guarantees a true Gaussian Process would have",
+      "empirical: qualitatively accurate regression on 1D curves, competitive image completion, strong one-shot classification on Omniglot"
+    ],
+    "operation": "encode each observation pair independently, aggregate all encodings with a mean into a fixed-size representation, decode a predictive distribution for each target input"
+  },
+  "applicability": {
+    "task_types": ["function regression", "image completion", "one-shot classification"],
+    "data_modalities": ["1D functions", "images (MNIST, CelebA)", "Omniglot characters"]
+  },
+  "evidence_spans": {
+    "objects": "Consider a set O = {(xi, yi)} of pairs of inputs and outputs, and another set T of unlabelled points.",
+    "assumptions": "we emphasize that the Q_theta are not necessarily a consistent set of conditionals for all observation sets, and the training routine does not guarantee that.",
+    "guarantees": "CNPs make accurate predictions after observing only a handful of training data points, yet scale to complex functions and large datasets."
+  },
+  "has_formal_proof": false
+}

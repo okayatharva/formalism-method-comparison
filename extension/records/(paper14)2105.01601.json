@@ -1,0 +1,27 @@
+{
+  "method_name": "MLP-Mixer",
+  "paper_id": "2105.01601",
+  "arxiv_categories": ["cs.CV"],
+  "formalism": {
+    "objects": ["a two-dimensional table X in R^(SxC), where S is the number of image patches and C is the hidden channel dimension"],
+    "assumptions": [
+      "all image patches are linearly projected with the same shared projection matrix",
+      "no explicit position embeddings are used"
+    ],
+    "guarantees": [
+      "no formal theorem, lemma, or proof is provided for the architecture",
+      "empirical: 87.94% top-1 validation accuracy on ImageNet when pre-trained on JFT-300M"
+    ],
+    "operation": "alternately apply a token-mixing MLP across patches and a channel-mixing MLP across features of a fixed table"
+  },
+  "applicability": {
+    "task_types": ["image classification", "transfer learning"],
+    "data_modalities": ["images split into fixed-size non-overlapping patches"]
+  },
+  "evidence_spans": {
+    "objects": "Mixer takes as input a sequence of S non-overlapping image patches, each one projected to a desired hidden dimension C.",
+    "assumptions": "Unlike ViTs, Mixer does not use position embeddings because the token-mixing MLPs are sensitive to the order of the input tokens.",
+    "guarantees": "When pre-trained on large datasets, Mixer reaches near state-of-the-art performance... including 87.94% top-1 validation accuracy on ImageNet."
+  },
+  "has_formal_proof": false
+}

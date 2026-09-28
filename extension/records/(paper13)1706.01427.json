@@ -1,0 +1,28 @@
+{
+  "method_name": "Relation Network (RN)",
+  "paper_id": "1706.01427",
+  "arxiv_categories": ["cs.CL"],
+  "formalism": {
+    "objects": ["a set of object vectors O = {o1,...,on} in R^m, considered pairwise"],
+    "assumptions": [
+      "which object pairs are actually related is not known in advance and must be inferred",
+      "output must be invariant to the order of objects in the input set"
+    ],
+    "guarantees": [
+      "no formal theorem; permutation invariance asserted as a consequence of summation, not separately derived",
+      "super-human 95.5% accuracy on CLEVR-from-pixels",
+      "18/20 tasks solved on joint bAbI suite"
+    ],
+    "operation": "sum a learned pairwise relation function over every ordered pair of objects, then transform the sum to produce the output"
+  },
+  "applicability": {
+    "task_types": ["visual question answering", "text-based question answering", "relational inference"],
+    "data_modalities": ["images", "natural language", "pre-factored state descriptions", "time-series of object states"]
+  },
+  "evidence_spans": {
+    "objects": "the input is a set of \"objects\" O = {o1, o2, ..., on}, oi in R^m is the ith object",
+    "assumptions": "RNs must learn to infer the existence and implications of object relations.",
+    "guarantees": "Our model achieved state-of-the-art performance on CLEVR at 95.5%, exceeding the best model trained only on the pixel images and questions... and surpassing human performance."
+  },
+  "has_formal_proof": false
+}

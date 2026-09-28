@@ -1,0 +1,30 @@
+{
+  "method_name": "Graph Isomorphism Network (GIN)",
+  "paper_id": "1810.00826",
+  "arxiv_categories": ["cs.LG"],
+  "formalism": {
+    "objects": ["a graph with node feature vectors from a countable space; at each layer, the multiset of a node's neighbor feature vectors"],
+    "assumptions": [
+      "node input features come from a countable universe",
+      "multisets of neighbor features are of bounded size"
+    ],
+    "guarantees": [
+      "formal theorem: any GNN is at most as powerful as the Weisfeiler-Lehman isomorphism test",
+      "formal theorem: sum aggregation is injective over bounded multisets, matching WL's power exactly",
+      "formal proof: mean aggregation only captures proportions, not exact counts",
+      "formal proof: max aggregation only captures presence, ignoring counts entirely",
+      "empirical: state-of-the-art or comparable accuracy on 9 graph classification benchmarks"
+    ],
+    "operation": "sum the multiset of neighbor feature vectors, combine with the node's own previous feature, pass through an MLP"
+  },
+  "applicability": {
+    "task_types": ["node classification", "graph classification"],
+    "data_modalities": ["bioinformatics molecule graphs", "social network graphs"]
+  },
+  "evidence_spans": {
+    "objects": "Let G = (V, E) denote a graph with node feature vectors Xv for v in V... feature vectors of a set of neighboring nodes form a multiset",
+    "assumptions": "Throughout the paper, we assume node input features are from a countable universe.",
+    "guarantees": "Theorem 3. Let A : G -> R^d be a GNN. With a sufficient number of GNN layers, A maps any graphs G1 and G2 that the Weisfeiler-Lehman test decides as non-isomorphic, to different embeddings if the following conditions hold..."
+  },
+  "has_formal_proof": true
+}
