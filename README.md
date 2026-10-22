@@ -1,27 +1,95 @@
 # Formalism Structure & Grouping
 
-This project looks at whether scientific methods can be grouped by their **formal structure** rather than only by their topic.
+This project explores whether scientific methods can be compared and grouped by their underlying formal structure rather than only by their research topic.
 
-I analyzed six papers and extracted four main parts of their formalism:
+The project has two distinct parts:
 
-* Objects
-* Assumptions
-* Guarantees
-* Operation
+1. **Original research:** An analysis of six scientific papers.
+2. **Research extension:** A separate analysis of ten additional scientific papers.
 
-I then compared the methods using three grouping axes:
+The original six-paper research and the ten-paper extension are maintained separately. Their research records, groupings, and findings should not be treated as one combined dataset.
 
-1. By objects
-2. By assumptions
-3. By operation
+## Original Research — Six Papers
 
-One interesting result was that **GAT and ViT**, although belonging to different topical areas, have a similar operation based on learned attention. Based on these six papers, I think **operation** could be a useful axis for organizing methods.
+The original research examines four aspects of formalism:
 
-### What I learned
+- Objects
+- Assumptions
+- Guarantees
+- Operations
 
-This work helped me understand that methods from different areas can sometimes have similar underlying structures. I also learned that AI can help with the first-pass extraction, but the information needs to be checked against the original paper.
+Methods are compared by objects, assumptions, and operations to investigate similarities across research topics.
 
-### Next steps
+The original research records and grouping results remain in their existing locations.
 
-With more time, I would like to learn more about the formalism concepts, explore more methods, and test whether the same grouping patterns appear with a larger number of papers.
+## Research Extension — Ten Additional Papers
 
+The extension investigates whether patterns identified in the original research also appear in ten additional papers.
+
+The extension includes:
+- Ten additional JSON research records
+- Separate grouping and comparison results
+- An extension research write-up
+- A Python and Streamlit dashboard
+- Automated tests for the Python analysis modules
+
+The extension dashboard reads only the ten records in `extension/records/`. It does not combine them with the original six-paper dataset.
+
+## Repository Structure
+
+```text
+formalism-method-comparison/
+├── records/                       # Original six-paper records
+├── groupings/                     # Original research groupings
+├── extension/
+│   ├── records/                   # Ten additional paper records
+│   ├── groupings/                 # Extension-only groupings
+│   ├── extension_writeup.md       # Ten-paper extension write-up
+│   ├── README.md                  # Extension documentation
+│   └── python_analysis/
+│       ├── app.py                 # Streamlit dashboard
+│       ├── config.py              # Configuration and paths
+│       ├── data_loader.py         # JSON record loading
+│       ├── analysis.py            # Analysis and DataFrame creation
+│       ├── validation.py          # Dataset validation
+│       ├── grouping_analysis.py   # Grouping comparisons
+│       ├── visualizations.py      # Charts and heatmap
+│       ├── exports.py             # Analysis exports
+│       └── output/                # Generated dashboard outputs
+└── tests/                         # Automated tests
+```
+
+## Run the Ten-Paper Extension Dashboard
+
+From the repository root, create and activate a virtual environment, then install the dependencies:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+Start the dashboard:
+
+```bash
+streamlit run extension/python_analysis/app.py
+```
+
+Streamlit will print the local URL to open in your browser.
+
+## Run the Automated Tests
+
+From the repository root:
+
+```bash
+python -m pip install pytest
+PYTHONPATH=extension/python_analysis python -m pytest tests/ -v
+```
+
+The tests cover data loading, analysis fields, grouping findings, and dataset validation.
+
+## Scope and Limitations
+
+Both parts of the project investigate formal structures in selected scientific papers. The extension is a separate exploratory analysis of ten additional papers, not a merged reanalysis of all sixteen papers.
+
+Topic and operation labels depend on interpreting each paper's formalism. Similar operation labels do not necessarily mean that two methods are mathematically identical. Formal proof or theorem support should also be distinguished from mathematical properties and empirical performance claims.

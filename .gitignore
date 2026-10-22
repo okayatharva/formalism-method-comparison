@@ -2,3 +2,8 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# Local backups of the original dashboard (do not commit)
+extension/python_analysis/app_backup.py
+extension/python_analysis/app_before_modular_integration.py
+extension/python_analysis/app_pre_integration_backup.py

@@ -1,7 +1,5 @@
 # Python-Based Analysis of the 10-Paper Extension
 
-## Dataset
-
 Number of papers analysed: 10
 
 ## Topic Distribution
@@ -50,4 +48,4 @@ Number of papers analysed: 10
 
 ## Interpretation
 
-The Python analysis provides a reproducible comparison between topical classification and formal operation-based classification. The results can reveal cases where methods from different research areas share similar underlying operations, as well as cases where methods within the same topic use different operations.
+This analysis compares topic labels with operation-based classifications to identify shared operations across topics and differing operations within a topic.

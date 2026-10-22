@@ -1,19 +1,53 @@
-# Extension Folder
+# Ten-Paper Research Extension
 
-This folder is a follow up to my main write up. My original analysis was based on just six papers, and I found one interesting pair, GAT and ViT, that looked completely unrelated by subject but turned out to do the same thing underneath. Since this was based on only one example, I wanted to check if it was actually a pattern or just luck.
+This folder contains a separate extension to the original formalism-method comparison research.
 
-For this part, I picked 10 more papers on purpose. Some were chosen to check if the same attention pattern appears again in completely different fields, and some were chosen to see if my grouping system works for papers that do not fit into my original categories.
+The original research examined six scientific papers. This extension examines ten additional papers to investigate whether similar formal operations appear across different research topics.
 
-## What's in here
+**Important:** The extension analyses only its ten additional papers. It does not merge its records or grouping results with those of the original six-paper research.
 
-`records/` contains the JSON records for the 10 new papers, using the same format as my original six, with one extra field called `has_formal_proof` because the professor specifically asked me to check if this mattered.
+## Research Questions
 
-`groupings/` contains the same type of grouping I did before, by objects, assumptions, operation, topic, and a comparison table. I did this only on the 10 new papers so that I could test the pattern separately instead of mixing the old and new papers together.
+- Do different research topics use similar underlying operations?
+- Can methods within the same topic use different operations?
+- What do objects, assumptions, and guarantees reveal about the structure of a method?
+- What formal proof or theorem support is reported in the selected papers?
 
-`extension_writeup.md` contains my full write up of what I found, what surprised me, and what I would still want to check.
+## Contents
 
-## Short version of what I found
+- `records/` — JSON records for the ten additional papers, including the `has_formal_proof` field.
+- `groupings/` — Grouping and comparison results for the ten-paper extension only.
+- `extension_writeup.md` — The extension's research discussion, findings, and limitations.
+- `python_analysis/` — The Python modules, Streamlit dashboard, and generated analysis outputs.
 
-Three of the 10 new papers, one about translating language, one about reading medical scans, and one about modeling memory, all turned out to use the same basic idea: learning how much to trust each piece of information instead of treating everything equally.
+## Main Observations
 
-These three fields are very different from each other. For me, this is the strongest evidence so far that my original GAT and ViT finding was not just a coincidence.
+In this ten-paper extension, Learned Attention appears in selected methods from Memory Networks, NLP, and Medical Imaging. Neighbor Aggregation appears in selected methods from 3D Vision and Graph Learning.
+
+The extension also identifies different operations among the selected 3D Vision methods: Neighbor Aggregation and Max Aggregation.
+
+These are exploratory observations from the selected ten papers. A shared label does not by itself establish that two methods are mathematically equivalent or that the patterns generalize to all research fields.
+
+## Run the Dashboard
+
+From the repository root:
+
+```bash
+python -m pip install -r requirements.txt
+streamlit run extension/python_analysis/app.py
+```
+
+## Run the Tests
+
+From the repository root:
+
+```bash
+python -m pip install pytest
+PYTHONPATH=extension/python_analysis python -m pytest tests/ -v
+```
+
+## Data Integrity and Limitations
+
+The dashboard reads JSON files from this extension's `records/` directory. The original six-paper records and their analysis remain separate and should not be modified by the extension workflow.
+
+The ten papers form a limited, selected sample. Topic and operation labels should be interpreted in the context of the definitions and assumptions in the original papers. Formal proofs, mathematical properties, and empirical results are distinct kinds of evidence.
